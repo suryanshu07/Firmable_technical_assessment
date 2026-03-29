@@ -1,0 +1,7 @@
+nyc_taxi_profile:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: /workspaces/Firmable_technical_assessment/nyc-taxi-data-engineering/data/nyc_taxi.duckdb
+      threads: 4

@@ -1,0 +1,39 @@
+version: 2
+
+models:
+
+  - name: fct_trips
+    description: "Fact table for taxi trips"
+
+    columns:
+      - name: trip_id
+        tests:
+          - not_null
+          - unique
+
+      - name: pickup_datetime
+        tests:
+          - not_null
+
+      - name: total_amount
+        tests:
+          - not_null
+
+      - name: fare_amount
+        tests:
+          - not_null
+
+      - name: trip_duration_minutes
+        tests:
+          - valid_trip_duration:
+              min_value: 1
+              max_value: 180
+
+  - name: dim_zones
+    description: "Taxi zone dimension"
+
+    columns:
+      - name: location_id
+        tests:
+          - not_null
+          - unique

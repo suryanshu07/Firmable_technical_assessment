@@ -1,0 +1,15 @@
+# Data
+data/
+*.parquet
+*.duckdb
+
+# dbt
+target/
+dbt_packages/
+
+# Python
+__pycache__/
+*.pyc
+
+# env
+.env

@@ -1,0 +1,29 @@
+name: 'nyc_taxi_project'
+version: '1.0.0'
+config-version: 2
+
+profile: 'nyc_taxi_profile'
+
+model-paths: ["dbt/models"]
+seed-paths: ["dbt/seeds"]
+test-paths: ["dbt/tests"]
+macro-paths: ["dbt/macros"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  nyc_taxi_project:
+    staging:
+      +materialized: view
+    intermediate:
+      +materialized: view
+    marts:
+      +materialized: table
+
+seeds:
+  nyc_taxi_project:
+    taxi_zone_lookup:
+      +header: true

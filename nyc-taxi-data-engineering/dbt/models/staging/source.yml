@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: nyc_taxi
+    schema: main
+    tables:
+      - name: yellow_tripdata
+
+        loaded_at_field: tpep_pickup_datetime
+
+        freshness:
+          warn_after: {count: 1, period: day}
+          error_after: {count: 2, period: day}
